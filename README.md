@@ -1,6 +1,6 @@
 # Property Letting Platform
 
-> A full-stack property letting system built with Next.js, MySQL, and NextAuth supporting role-based access for admins, landlords, and users to manage, list, and apply for properties.
+A full-stack property letting system built with Next.js, MySQL, and NextAuth supporting role-based access for admins, landlords, and users to manage, list, and apply for properties.
 
 ---
 
