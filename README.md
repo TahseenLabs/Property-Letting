@@ -1,40 +1,188 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Property Letting Platform
+
+> A full-stack property letting system built with Next.js, MySQL, and NextAuth supporting role-based access for admins, landlords, and users to manage, list, and apply for properties.
+
+---
+
+## Features
+
+### Role-Based System
+- **Admin**
+  - Manage users and applications
+  - Full system control and oversight
+
+- **Landlord / Property Owner**
+  - Add and manage property listings
+  - View applications for their properties
+
+- **User / Tenant**
+  - Browse listings
+  - Apply for properties
+  - Track applications
+
+---
+
+### Core Features
+- Property listing system with detailed views
+- Application system for rentals
+- User authentication with NextAuth
+- Role-based dashboards (admin, user, landlord)
+- User and property management panels
+- MySQL-backed relational database
+
+---
+
+## Screenshots
+
+A glimpse into the platform UI and user experience:
+
+### Landing Page
+![Landing Page](./public/images/landingPage-img.png)
+
+### Register Page
+![Register Page](./public/images/registerPage-img.png)
+
+### Login Page
+![Login Page](./public/images/loginPage-img.png)
+
+---
+
+## Tech Stack
+
+| Layer | Technology |
+|------|------------|
+| Framework | Next.js (Pages Router) |
+| Backend | Node.js (API Routes) |
+| Authentication | NextAuth.js |
+| Database | MySQL |
+| Styling | CSS (global styles) |
+| State/API | REST APIs via Next.js API routes |
+
+---
+
+## Project Structure
+
+```
+
+Property-Letting/
+├── lib/                      # Database connection (db.js)
+├── pages/
+│   ├── api/                  # Backend API routes
+│   │   ├── applications/    # Application management APIs
+│   │   ├── auth/            # NextAuth configuration
+│   │   ├── properties/     # Property APIs
+│   │   ├── users/          # User management APIs
+│   │   ├── register.js     # Registration endpoint
+│   ├── dashboard.js         # Main dashboard
+│   ├── listings.js          # Property listings
+│   ├── login.js             # Login page
+│   ├── register.js          # Register page
+│   ├── apply.js             # Property application page
+│   ├── my-applications.js   # User applications
+│   ├── my-properties.js     # Landlord properties
+│   ├── manage-apps.js       # Admin applications panel
+│   ├── manage-users.js      # Admin user management
+│   ├── logout.js            # Logout handler
+│   ├── index.js             # Home page
+├── public/
+│   ├── images/              # UI images & screenshots
+├── styles/
+│   └── globals.css
+├── property_letting.sql     # Database schema
+├── next.config.mjs
+├── package.json
+└── jsconfig.json
+
+````
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+- Node.js v18+
+- MySQL installed and running
+- Environment variables configured
+
+---
+
+### Installation
 
 ```bash
+# Clone the repository
+git clone https://github.com/TahseenLabs/Property-Letting.git
+cd Property-Letting
+
+# Install dependencies
+npm install
+
+# Configure environment variables
+cp .env.example .env.local
+
+# Import database
+mysql -u root -p < property_letting.sql
+
+# Run development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+````
+
+Open:
+
+```
+http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Environment Variables
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+Create a `.env.local` file:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+```env
+DB_HOST=localhost
+DB_PORT=3306
+DB_USER=your_user
+DB_PASSWORD=your_password
+DB_NAME=property_letting
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+NEXTAUTH_SECRET=your_secret
+NEXTAUTH_URL=http://localhost:3000
+```
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Database Setup
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+Import the schema:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+mysql -u root -p < property_letting.sql
+```
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Available Scripts
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+```bash
+npm run dev      # Development server
+npm run build    # Production build
+npm run start    # Start production server
+npm run lint     # Lint project
+```
+
+---
+
+## Project Highlights
+
+* Modular API structure (users, properties, applications)
+* Role-based access control system
+* Full CRUD operations for listings and applications
+* Clean separation of frontend and backend logic
+* Scalable MySQL schema design
+
+---
+
+<p align="center">
+Built with ❤️ by <a href="https://github.com/TahseenLabs">TahseenLabs</a>
+</p>
+
